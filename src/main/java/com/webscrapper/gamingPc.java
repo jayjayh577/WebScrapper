@@ -1,6 +1,6 @@
 package com.webscrapper;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /** Class representing a Gaming Laptop */
 @Entity
@@ -21,7 +21,7 @@ public class gamingPc {
 
     //Other information about the Gaming Laptop
     @ManyToOne
-    @JoinColumn(name="gaming_pc_id", nullable=false)
+    @JoinColumn(name="gaming_pc_id", nullable=true)
     gamingPcDetails details;
 
     public int getId() {

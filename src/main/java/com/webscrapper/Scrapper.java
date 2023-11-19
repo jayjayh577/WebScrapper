@@ -30,14 +30,13 @@ public class Scrapper {
             // Create a Hibernate session factory
             // Create the SessionFactory from hibernate.cfg.xml
             Configuration configuration = new Configuration().configure();
-            configuration.addAnnotatedClass(gamingPc.class);
-            configuration.addAnnotatedClass(gamingPcDetails.class);
+            configuration.addAnnotatedClass(com.webscrapper.gamingPc.class);
+            configuration.addAnnotatedClass(com.webscrapper.gamingPcDetails.class);
 
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
 
             // Build the SessionFactory
             sessionFactory = configuration.buildSessionFactory(builder.build());
-
 
             try (Session session = sessionFactory.openSession()) {
                 // Begin a transaction
@@ -53,7 +52,7 @@ public class Scrapper {
                     gamingLaptop.setPrice(dataNowText);
 
                     // Save the gaming laptop to the database
-                    session.save(gamingLaptop);
+                    session.persist(gamingLaptop);
                 }
 
                 // Commit the transaction

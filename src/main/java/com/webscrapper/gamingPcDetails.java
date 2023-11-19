@@ -1,6 +1,6 @@
 package com.webscrapper;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /** Class modelling of a  Gaming Laptop */
 @Entity
