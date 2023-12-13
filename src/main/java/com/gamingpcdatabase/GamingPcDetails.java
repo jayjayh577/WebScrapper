@@ -1,37 +1,42 @@
-package com.webscrapper;
+package com.gamingpcdatabase;
 
 import jakarta.persistence.*;
 
-/** Class modelling of a  Gaming Laptop */
+import java.util.List;
+
+/**
+ * Class modeling of a Gaming PC Details
+ */
 @Entity
 @Table(name="gaming_pc_details")
-public class gamingPcDetails {
+public class GamingPcDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int id;
+    private int id;
 
-    //Title of degree programme
+    // Name of the gaming PC
     @Column(name = "name")
-    String name;
+    private String name;
 
-    //Description of degree programme
+    // Brand of the gaming PC
     @Column(name = "brand")
-    String brand;
+    private String brand;
 
-    //Title of degree programme
+    // Model of the gaming PC
     @Column(name = "model")
-    String model;
+    private String model;
 
-    //Description of degree programme
-    @Column(name = "image_url")
-    String imageurl;
-
-    //Description of Gaming Laptop
+    // Description of the gaming PC
     @Column(name = "description")
-    String description;
+    private String description;
 
+    // One-to-many relationship with gamingPc
+    @OneToMany(mappedBy = "details", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<GamingPc> gamingPcs;
+
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -64,19 +69,19 @@ public class gamingPcDetails {
         this.model = model;
     }
 
-    public String getImageurl() {
-        return imageurl;
-    }
-
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<GamingPc> getGamingPcs() {
+        return gamingPcs;
+    }
+
+    public void setGamingPcs(List<GamingPc> gamingPcs) {
+        this.gamingPcs = gamingPcs;
     }
 }

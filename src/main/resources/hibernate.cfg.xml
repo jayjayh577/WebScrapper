@@ -23,8 +23,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Mapping files -->
-        <mapping class="com.webscrapper.gamingPc"/>
-        <mapping class="com.webscrapper.gamingPcDetails"/>
+        <mapping class="com.gamingpcdatabase.GamingPc"/>
+        <mapping class="com.gamingpcdatabase.GamingPcDetails"/>
 
     </session-factory>
 </hibernate-configuration>
